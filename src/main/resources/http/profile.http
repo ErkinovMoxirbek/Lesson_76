@@ -1,12 +1,50 @@
-### Create profle
-POST localhost:8080/api/v1/profile/create
+### Create profile
+POST localhost:8080/api/v1/profile/
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODI1OTE0NDUsImlkIjoyLCJyb2xlIjoiQURNSU4iLCJleHAiOjE2ODI2Nzc4NDUsImlzcyI6Ikt1bnV6IHRlc3QgcG9ydGFsaSJ9.BQHarR_cXoqAKLxQ-VP-Xy06eflDEBg5-7dV6mSGiS4geafqj8okcCgPwUCX0DOJaTaCGi1KdF2JsWtgVNuyvg
 Content-Type:  application/json
 
 {
-  "name": "Admin",
-  "surname": "Adminov",
-  "email": "admin@mail.ru",
-  "phone": "1234",
-  "password": "123456",
-  "role": "ADMIN"
+  "name": "dgfchvjb",
+  "surname": "gvhbjj",
+  "email": "hcgvjbkn@mail.ru",
+  "phone": "23456",
+  "password": "09876",
+  "role": "USER"
+}
+
+### Profile List with pagination
+GET http://localhost:8080/api/v1/profile/list-paging
+
+### Profile get by id
+GET http://localhost:8080/api/v1/profile/1
+
+### Profile delete by id
+DELETE http://localhost:8080/api/v1/profile/4
+
+### Profile update by Id with Admin
+PUT http://localhost:8080/api/v1/profile/5
+Content-Type: application/json
+
+{
+  "name": "sfvfg"
+}
+
+### Profile update by Id
+PUT http://localhost:8080/api/v1/profile/5
+Content-Type: application/json
+
+{
+  "name": "sfvfg"
+}
+
+###
+PUT http://localhost:8080/api/v1/profile/update/1
+Content-Type: application/json
+
+{
+  "name": "Toshmat",
+  "surname": "Toshmatov",
+  "phone": 12345,
+  "password": "653",
+  "email": "email@mail.ru"
 }
