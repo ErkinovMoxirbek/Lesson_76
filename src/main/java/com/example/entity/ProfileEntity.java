@@ -26,7 +26,7 @@ public class ProfileEntity {
     private String password;
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
-    private GeneralStatus status;
+    private GeneralStatus status = GeneralStatus.ACTIVED;
     @Enumerated(EnumType.STRING)
     @Column(name = "role")
     private ProfileRole role;
