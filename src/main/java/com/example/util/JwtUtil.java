@@ -43,4 +43,8 @@ public class JwtUtil {
         }
         throw new MethodNotAllowedException("Jwt exception");
     }
+
+    public static JwtDTO getJwtDTO(String authorization, ProfileRole admin) {
+        return null;
+    }
 }

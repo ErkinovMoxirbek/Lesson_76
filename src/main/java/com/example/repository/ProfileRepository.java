@@ -44,4 +44,5 @@ public interface ProfileRepository extends CrudRepository<ProfileEntity, Integer
     @Override
     void deleteAll();
     Optional<ProfileEntity> findByEmailAndPasswordAndVisible(String email,String password, boolean visible);
+    Optional<ProfileEntity> findByEmail (String email);
 }
