@@ -1,17 +1,11 @@
 package com.example.controller;
 
-import com.example.dto.AuthDTO;
-import com.example.dto.AuthResponseDTO;
-import com.example.dto.ProfileDTO;
-import com.example.dto.RegistrationDTO;
+import com.example.dto.*;
 import com.example.exp.AppBadRequestException;
 import com.example.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -37,5 +31,9 @@ public class AuthController {
             e.printStackTrace();
             return ResponseEntity.badRequest().body(e.getMessage());
         }
+    }
+    @GetMapping("/email/verification/{jwt}")
+    public ResponseEntity<RegistrationResponseDTO> emailVerification(@PathVariable("jwt") String jwt) {
+        return ResponseEntity.ok(authService.emailVerification(jwt));
     }
 }

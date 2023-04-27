@@ -6,11 +6,9 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 
 @Getter @Setter
-public class RegionDTO {
+public class EmailHistoryDTO {
     private Integer id;
-    private String nameUz;
-    private String nameRu;
-    private String nameEn;
+    private String email;
+    private String message;
     private LocalDateTime createdDate;
-    private Boolean visible;
 }

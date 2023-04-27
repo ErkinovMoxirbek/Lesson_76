@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "article_type")
 @Getter @Setter
@@ -21,7 +23,7 @@ public class ArticleTypeEntity {
     @Column(name = "name_en")
     private String nameEn;
     @Column(name = "visible")
-    private String visible;
+    private Boolean visible;
     @Column(name = "created_date")
-    private LocalDate createdDate = LocalDate.now();
+    private LocalDateTime createdDate = LocalDateTime.now();
 }

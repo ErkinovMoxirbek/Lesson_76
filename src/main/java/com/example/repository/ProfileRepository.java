@@ -1,6 +1,8 @@
 package com.example.repository;
 
 import com.example.entity.ProfileEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -20,8 +22,7 @@ public interface ProfileRepository extends CrudRepository<ProfileEntity, Integer
     @Override
     boolean existsById(Integer integer);
 
-    @Override
-    Iterable<ProfileEntity> findAll();
+    Page <ProfileEntity > findAll (Pageable pageable);
 
     @Override
     Iterable<ProfileEntity> findAllById(Iterable<Integer> integers);

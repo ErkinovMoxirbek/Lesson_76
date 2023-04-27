@@ -53,10 +53,24 @@ public class AuthService {
         entity.setPassword(MD5Util.getMd5Hash(dto.getPassword()));
         entity.setStatus(GeneralStatus.REGISTER);
         // send email
-        mailSenderService.sendRegistrationEmailMime(dto.getEmail());
+//        mailSenderService.sendRegistrationEmailMime(dto.getEmail());
         // save
         profileRepository.save(entity);
         String s = "Verification link was send to email: " + dto.getEmail();
         return new RegistrationResponseDTO(s);
+    }
+    public RegistrationResponseDTO emailVerification(String jwt) {
+        String email = JwtUtil.decodeEmailVerification(jwt);
+        Optional<ProfileEntity> optional = profileRepository.findByEmail(email);
+        if (optional.isEmpty()) {
+            throw new ItemNotFoundException("Email not found.");
+        }
+        ProfileEntity entity = optional.get();
+        if (!entity.getStatus().equals(GeneralStatus.REGISTER)) {
+            throw new AppBadRequestException("Wrong status");
+        }
+        entity.setStatus(GeneralStatus.ACTIVED);
+        profileRepository.save(entity);
+        return new RegistrationResponseDTO("Registration Done");
     }
 }

@@ -47,4 +47,8 @@ public class JwtUtil {
     public static JwtDTO getJwtDTO(String authorization, ProfileRole admin) {
         return null;
     }
+
+    public static String decodeEmailVerification(String jwt) {
+        return null;
+    }
 }
