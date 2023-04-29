@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import com.example.dto.ArticleDTO;
+import com.example.dto.ArticleInfoDTO;
 import com.example.dto.ArticleRequestDTO;
 import com.example.dto.JwtDTO;
 import com.example.enums.ArticleStatus;
@@ -12,6 +13,8 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/article")
@@ -54,11 +57,11 @@ public class ArticleController {
             (Berilgan types bo'yicha oxirgi 5ta pubished bo'lgan article ni return qiladi.)
             ArticleShortInfo*/
     @GetMapping("/get-last-5")
-    public ResponseEntity<List<ArticleShortInfoDTO>> getLast5(@RequestParam("type_id") Integer id) {
+    public ResponseEntity<List<ArticleInfoDTO>> getLast5(@RequestParam("type_id") Integer id) {
         return ResponseEntity.ok(articleService.getLastByCount(id, 5));
     }
     @GetMapping("/get-last-3")
-    public ResponseEntity<List<ArticleShortInfoDTO>> getLast3(@RequestParam("type_id") Integer id) {
+    public ResponseEntity<List<ArticleInfoDTO>> getLast3(@RequestParam("type_id") Integer id) {
         return ResponseEntity.ok(articleService.getLastByCount(id, 3));
     }
 
@@ -66,7 +69,7 @@ public class ArticleController {
      */
 
     @PostMapping("/get-last-given-list")
-    public ResponseEntity<List<ArticleShortInfoDTO>>getLast8(@RequestBody List<Integer> countList){
+    public ResponseEntity<List<ArticleInfoDTO>>getLast8(@RequestBody List<Integer> countList){
         return ResponseEntity.ok(articleService.getLastGivenList(countList));
     }
 }
