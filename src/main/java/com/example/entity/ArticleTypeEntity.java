@@ -26,4 +26,5 @@ public class ArticleTypeEntity {
     private Boolean visible;
     @Column(name = "created_date")
     private LocalDateTime createdDate = LocalDateTime.now();
+    private Integer prtId;
 }

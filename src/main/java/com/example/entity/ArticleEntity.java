@@ -26,45 +26,31 @@ public class ArticleEntity {
     @Column(name = "status")
     private ArticleStatus status = ArticleStatus.NOT_PUBLISHED;
     @Column(name = "shared_count")
-    private Long sharedCount ;
-
-    @Column(name = "attach_id")
-    private Integer attachId;
+    private Integer sharedCount = 0;
     @ManyToOne
-    @JoinColumn(name = "attach_id", insertable = false, updatable = false)
+    @JoinColumn(name = "attach_id")
     private AttachEntity attach;
-
-    @Column(name = "region_id")
-    private Integer regionId;
     @ManyToOne
-    @JoinColumn(name = "region_id", insertable = false, updatable = false)
+    @JoinColumn(name = "region_id")
     private RegionEntity region;
-
-    @Column(name = "category_id")
-    private Integer categoryId;
     @ManyToOne
-    @JoinColumn(name = "category_id", insertable = false, updatable = false)
+    @JoinColumn(name = "category_id")
     private CategoryEntity category;
-
-    @Column(name = "moderator_id")
-    private Integer moderatorId;
     @ManyToOne
-    @JoinColumn(name = "moderator_id", insertable = false, updatable = false)
+    @JoinColumn(name = "moderator_id")
     private ProfileEntity moderator;
-
-    @Column(name = "publisher_id")
-    private Integer publisherId;
     @ManyToOne
-    @JoinColumn(name = "publisher_id", insertable = false, updatable = false)
+    @JoinColumn(name = "publisher_id")
     private ProfileEntity publisher;
-
     @Column(name = "created_date")
     private LocalDateTime createdDate = LocalDateTime.now();
     @Column(name = "published_date")
-    private LocalDate publishedDate;
+    private LocalDateTime publishedDate;
     @Column(name = "visible")
     private Boolean visible = Boolean.TRUE;
     @Column(name = "view_count")
     private Integer viewCount;
-    private Integer imageId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "type_id")
+    private ArticleTypeEntity type;
 }

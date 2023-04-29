@@ -2,11 +2,14 @@ package com.example.controller;
 
 import com.example.dto.ArticleTypeDTO;
 import com.example.dto.ArticleTypeLangDTO;
+import com.example.dto.ArticleTypeRequestDTO;
 import com.example.dto.JwtDTO;
 import com.example.enums.ProfileRole;
 import com.example.exps.MethodNotAllowedException;
 import com.example.service.ArticleTypeService;
 import com.example.util.JwtUtil;
+import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
@@ -15,41 +18,41 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/article-type")
+@RequestMapping("/api/v1/articleType")
+@AllArgsConstructor
 public class ArticleTypeController {
-    @Autowired
-    private ArticleTypeService articleTypeService;
+
+    private final ArticleTypeService articleTypeService;
 
     @PostMapping({"", "/"})
-    public ResponseEntity<Integer> create(@RequestBody ArticleTypeDTO dto,
-                                          @RequestHeader("Authorization") String authorization) {
-        String[] str = authorization.split(" ");
-        String jwt = str[1];
-        JwtDTO jwtDTO = JwtUtil.decode(jwt);
-        if (!jwtDTO.getRole().equals(ProfileRole.ADMIN)) {
-            throw new MethodNotAllowedException("Method not allowed");
-        }
+    public ResponseEntity<ArticleTypeRequestDTO> create(@RequestBody @Valid ArticleTypeRequestDTO dto,
+                                                        @RequestHeader("Authorization") String authorization) {
+        JwtDTO jwtDTO = JwtUtil.getJwtDTO(authorization, ProfileRole.ADMIN);
         return ResponseEntity.ok(articleTypeService.create(dto, jwtDTO.getId()));
     }
-    @PutMapping("/{id}")
-    public ResponseEntity<Boolean> update(@PathVariable ("id") Integer id,
-                                          @RequestBody ArticleTypeDTO articleTypeDto) {
-        return ResponseEntity.ok(articleTypeService.update(id, articleTypeDto));
+
+    @PostMapping("/update/{id}")
+    public ResponseEntity<ArticleTypeDTO> updateById(@PathVariable Integer id,
+                                                     @RequestHeader("Authorization") String authorization,
+                                                     @RequestBody ArticleTypeDTO dto) {
+        JwtUtil.getJwtDTO(authorization, ProfileRole.ADMIN);
+        return ResponseEntity.ok(articleTypeService.updateById(id, dto));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Boolean> deleteById(@PathVariable ("id") Integer id) {
+    public ResponseEntity<Boolean> deleteById(@PathVariable Integer id,
+                                              @RequestHeader("Authorization") String authorization) {
+        JwtUtil.getJwtDTO(authorization, ProfileRole.ADMIN);
         return ResponseEntity.ok(articleTypeService.deleteById(id));
     }
 
-    @GetMapping("/list-paging")
-    public ResponseEntity<Page<ArticleTypeDTO>> getAll(@RequestParam(value = "page", defaultValue = "1") int page,
-                                                       @RequestParam(value = "size", defaultValue = "2") int size) {
-        return ResponseEntity.ok(articleTypeService.getAll(page, size));
+    @GetMapping("/")
+    public ResponseEntity<List<ArticleTypeDTO>> getAll(@RequestHeader("Authorization") String authorization) {
+        JwtUtil.getJwtDTO(authorization, ProfileRole.ADMIN);
+        return ResponseEntity.ok(articleTypeService.getAll());
     }
-
-    @GetMapping("/getLang/{lang}")
-    public ResponseEntity<List<ArticleTypeLangDTO>> getLang(@PathVariable ("lang") String lang) {
-        return ResponseEntity.ok(articleTypeService.getLang(lang));
+    @GetMapping("/{lang}")
+    public ResponseEntity<List<ArticleTypeDTO>> getByLang(@PathVariable String lang) {
+        return ResponseEntity.ok(articleTypeService.getByLang(lang));
     }
 }

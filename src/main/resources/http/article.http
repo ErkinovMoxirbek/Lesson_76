@@ -1,22 +1,39 @@
-### Create article
-POST localhost:8080/api/v1/article
+### Article Short Info
+GET localhost:8080/api/v1/article/1
+
+### create article
+POST localhost:8080/api/v1/article/
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODI1OTE0NDUsImlkIjoyLCJyb2xlIjoiQURNSU4iLCJleHAiOjE2ODI2Nzc4NDUsImlzcyI6Ikt1bnV6IHRlc3QgcG9ydGFsaSJ9.BQHarR_cXoqAKLxQ-VP-Xy06eflDEBg5-7dV6mSGiS4geafqj8okcCgPwUCX0DOJaTaCGi1KdF2JsWtgVNuyvg
 Content-Type:  application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODI1OTE0NDUsImlkIjoyLCJyb2xlIjoiQURNSU4iLCJleHAiOjE2ODI2Nzc4NDUsImlzcyI6Ikt1bnV6IHRlc3QgcG9ydGFsaSJ9.BQHarR_cXoqAKLxQ-VP-Xy06eflDEBg5-7dV6mSGiS4geafqj8okcCgPwUCX0DOJaTaCGi1KdF2JsWtgVNuyvg
 
 {
-  "title": "asdasdas",
-  "description": "dasdasdasdas",
-  "content": "    ",
-  "attachId": 1,
-  "typeList": [1,2,3,4,5]
-
+  "title": "ccccccccc",
+  "description": "ccccccccccccc",
+  "content": "ccccccccc",
+  "shared_count": 0,
+  "image_id": 4,
+  "region_id": 1,
+  "category_id": 1
 }
 
-### update
-POST http://localhost:8080/api/v1/article/1
-Content-Type: application/json
+### update article
+POST localhost:8080/api/v1/article/1b321832-598a-4997-bbbf-5d1ef0de4fc3
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODI1OTE0NDUsImlkIjoyLCJyb2xlIjoiQURNSU4iLCJleHAiOjE2ODI2Nzc4NDUsImlzcyI6Ikt1bnV6IHRlc3QgcG9ydGFsaSJ9.BQHarR_cXoqAKLxQ-VP-Xy06eflDEBg5-7dV6mSGiS4geafqj8okcCgPwUCX0DOJaTaCGi1KdF2JsWtgVNuyvg
+Content-Type:  application/json
 
 {
-
+  "title": "aaaaaaa",
+  "description": "aaa",
+  "content": "aaaaaaaaa",
+  "shared_count": 0,
+  "image_id": 4,
+  "region_id": 1,
+  "category_id": 1
 }
+
+### delete article
+DELETE localhost:8080/api/v1/article/1b321832-598a-4997-bbbf-5d1ef0de4fc3
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODI1OTE0NDUsImlkIjoyLCJyb2xlIjoiQURNSU4iLCJleHAiOjE2ODI2Nzc4NDUsImlzcyI6Ikt1bnV6IHRlc3QgcG9ydGFsaSJ9.BQHarR_cXoqAKLxQ-VP-Xy06eflDEBg5-7dV6mSGiS4geafqj8okcCgPwUCX0DOJaTaCGi1KdF2JsWtgVNuyvg
+Content-Type:  application/json
+### change status
+PUT localhost:8080/api/v1/article/1b321832-598a-4997-bbbf-5d1ef0de4fc3

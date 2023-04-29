@@ -12,22 +12,12 @@ import java.time.LocalDateTime;
 
 @Getter @Setter
 public class ArticleDTO {
-    private Integer id;
     private String title;
     private String description;
     private String content;
-    private Long sharedCount;
-    private Integer imageId;
+    private String attachId;
     private Integer regionId;
-    private RegionEntity region;
     private Integer categoryId;
-    private CategoryEntity category;
-    private Integer moderatorId;
-    private Integer publisherId;
-    private ArticleStatus status;
-    private LocalDateTime created_date;
-    private LocalDate published_date;
-    private Boolean visible;
-    private Long view_count;
+    private Integer typeId;
 
 }
