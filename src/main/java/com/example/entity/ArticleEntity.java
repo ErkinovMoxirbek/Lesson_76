@@ -53,4 +53,6 @@ public class ArticleEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "type_id")
     private ArticleTypeEntity type;
+
+    private String typeId;
 }
