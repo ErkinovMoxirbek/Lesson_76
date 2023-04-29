@@ -1,0 +1,31 @@
+### Attach save photo
+POST http://localhost:8080/api/v1/attach/upload
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="unnamed.png"
+
+< C:\Users\Asus\Pictures\unnamed.png
+
+###  Attach get photo by name
+GET http://localhost:8080/api/v1/attach/open/f2dcca31-d1ab-460d-99c9-c32a18f9f9f4.png
+
+### video
+POST http://localhost:8080/api/v1/attach/upload
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="333.mp4"
+
+< /Users/macuser/Downloads/33333.mp4
+
+#< C:\Users\BigMan\Desktop\11\test_imge_1.jpg
+
+###  Attach get video by name
+GET http://localhost:8080/api/v1/attach/open_general/59b4c377-6ef6-465d-8142-ef41eb479d2c
+### atach page-list
+GET http://localhost:8080/api/v1/attach/list-paging
+### delete
+###
+DELETE http://localhost:8080/api/v1/attach/delete/b33d09f7-2b96-4578-a172-3920e44c8eb9
+Content-Type: application/json
