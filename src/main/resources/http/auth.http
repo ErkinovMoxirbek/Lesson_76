@@ -1,19 +1,22 @@
 ### Login
-POST localhost:8080/api/v1/auth/login
+POST localhost:8088/api/v1/auth
 Content-Type:  application/json
 
 {
-  "email": "admin@mail.ru",
-  "password": "123456"
+  "email": "admin@gmail.com",
+  "password": "admin"
 }
-### Reg
+
+### Registration
 POST localhost:8080/api/v1/auth/registration
-Content-Type: application/json
+Content-Type:  application/json
 
 {
-  "name": "Anvar",
-  "surname":"AAAAA",
-  "email": "adad@mail.ru",
-  "phone":"+998996023662",
-  "password": "1111"
+  "name": "sss",
+  "surname": "sss",
+  "email": "ss@gmail.com",
+  "phone": "222",
+  "password": "222",
+  "role": "MODERATOR"
 }
+

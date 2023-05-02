@@ -1,0 +1,34 @@
+### Create region
+POST localhost:8080/api/v1/region
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODI3NDczMzYsImlkIjoxMSwicm9sZSI6IkFETUlOIiwiZXhwIjoxNjgyODMzNzM2LCJpc3MiOiJLdW51eiB0ZXN0IHBvcnRhbGkifQ.C3JtZ3qZrnb44DeO-t41RPNbdNRZlUlikyrH0vdmje4f5-K6xgRZyXdng9ukhAOPATbe8KmovcAPV2Tfw8etsQ
+Content-Type:  application/json
+
+{
+  "nameUZ": "qqq",
+  "nameRU": "ttt",
+  "nameEN": "yyyy"
+}
+
+
+### Update region
+PUT localhost:8080/api/v1/region
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODI3NDczMzYsImlkIjoxMSwicm9sZSI6IkFETUlOIiwiZXhwIjoxNjgyODMzNzM2LCJpc3MiOiJLdW51eiB0ZXN0IHBvcnRhbGkifQ.C3JtZ3qZrnb44DeO-t41RPNbdNRZlUlikyrH0vdmje4f5-K6xgRZyXdng9ukhAOPATbe8KmovcAPV2Tfw8etsQ
+Content-Type:  application/json
+
+{
+  "nameUZ": "eeee",
+  "nameRU": "eeee",
+  "nameEN": "eeee"
+}
+
+### Delete region
+DELETE localhost:8080/api/v1/region/delete/3
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODI3NDczMzYsImlkIjoxMSwicm9sZSI6IkFETUlOIiwiZXhwIjoxNjgyODMzNzM2LCJpc3MiOiJLdW51eiB0ZXN0IHBvcnRhbGkifQ.C3JtZ3qZrnb44DeO-t41RPNbdNRZlUlikyrH0vdmje4f5-K6xgRZyXdng9ukhAOPATbe8KmovcAPV2Tfw8etsQ
+Content-Type:  application/json
+
+
+### List region
+GET localhost:8080/api/v1/region/list
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODI3NDczMzYsImlkIjoxMSwicm9sZSI6IkFETUlOIiwiZXhwIjoxNjgyODMzNzM2LCJpc3MiOiJLdW51eiB0ZXN0IHBvcnRhbGkifQ.C3JtZ3qZrnb44DeO-t41RPNbdNRZlUlikyrH0vdmje4f5-K6xgRZyXdng9ukhAOPATbe8KmovcAPV2Tfw8etsQ
+Content-Type:  application/json
+
