@@ -2,10 +2,17 @@
 POST localhost:8088/api/v1/auth
 Content-Type:  application/json
 
+//{
+//  "email": "admin@gmail.com",
+//  "password": "admin"
+//}
+
 {
-  "email": "admin@gmail.com",
-  "password": "admin"
+  "email": "moderator@gmail.com",
+  "password": "moderator"
 }
+
+
 
 ### Registration
 POST localhost:8080/api/v1/auth/registration

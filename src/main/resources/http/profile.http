@@ -5,12 +5,12 @@ Content-Type:  application/json
 
 {
 
-  "name": "ali",
-  "surname": "Aliyev",
-  "email": "adminjon@gmail.com",
-  "phone": "000",
-  "password": "admin",
-  "role": "ADMIN",
+  "name": "moderator",
+  "surname": "moderatorov",
+  "email": "moderator@gmail.com",
+  "phone": "99999",
+  "password": "moderator",
+  "role": "MODERATOR",
   "status": "ACTIVED"
 
 }
