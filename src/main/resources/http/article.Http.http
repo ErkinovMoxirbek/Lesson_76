@@ -1,6 +1,6 @@
 ### Create article1
 POST localhost:8088/api/v1/article1
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODI5MjU4OTUsImlkIjoxMCwicm9sZSI6Ik1PREVSQVRPUiIsImV4cCI6MTY4MzAxMjI5NSwiaXNzIjoiS3VudXogdGVzdCBwb3J0YWxpIn0.fJ62Z2wFk9NcC-7xxHYJhQnJToHqoKTwfS2FEqQG-XgECbS9VGnXMcFdZWFQX4WpiGp_en5z3e83edxEGIzbWQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODMwMjY5NzgsImlkIjoxMCwicm9sZSI6Ik1PREVSQVRPUiIsImV4cCI6MTY4MzExMzM3OCwiaXNzIjoiS3VudXogdGVzdCBwb3J0YWxpIn0.UnmeRTpxgr3uz0iCGOsF_vtVedX_kDac0SvfYebspLzexEUguEqpoRd081E4oheHX9FAuXysmNoyq0klsYLe6Q
 Content-Type:  application/json
 
 {
@@ -11,7 +11,7 @@ Content-Type:  application/json
   "categoryId": 1,
   "regionId": 1,
   "category_id": 1,
-  "attachId": "7f12f329-e7c2-4e08-88d9-e268deb1c08c",
+  "attachId": "4dda5ced-9776-41b4-984d-9a03a1e798a0",
   "typeId": 1,
   "article_type": 1
 
