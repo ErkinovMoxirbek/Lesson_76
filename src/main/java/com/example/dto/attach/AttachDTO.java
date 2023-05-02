@@ -1,9 +1,11 @@
-package com.example.dto;
+package com.example.dto.attach;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @Getter @Setter
 public class AttachDTO {
     private String id;

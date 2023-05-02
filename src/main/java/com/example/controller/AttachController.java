@@ -1,7 +1,6 @@
 package com.example.controller;
 
-import com.example.dto.AttachDTO;
-import com.example.dto.ProfileDTO;
+import com.example.dto.attach.AttachDTO;
 import com.example.service.AttachService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -19,7 +18,7 @@ public class AttachController {
 
     @PostMapping("/upload")
     public ResponseEntity<String> upload(@RequestParam("file") MultipartFile file) {
-        String fileName = attachService.saveToSystem2(file);
+        String fileName = attachService.saveToSystem3(file);
         return ResponseEntity.ok().body(fileName);
     }
 
@@ -27,7 +26,7 @@ public class AttachController {
     public byte[] open(@PathVariable("fileName") String fileName) {
         if (fileName != null && fileName.length() > 0) {
             try {
-                return this.attachService.loadImage(fileName);
+                return this.attachService.loadImage2(fileName);
             } catch (Exception e) {
                 e.printStackTrace();
                 return new byte[0];
@@ -55,7 +54,7 @@ public class AttachController {
         return ResponseEntity.ok(attachService.getAll(page, size));
     }
     @DeleteMapping(value = "/delete/{id}")
-    public ResponseEntity<?> delete (@PathVariable String id){
+    public ResponseEntity<?> delete (@PathVariable String id) {
         return ResponseEntity.ok(attachService.delete(id));
     }
 

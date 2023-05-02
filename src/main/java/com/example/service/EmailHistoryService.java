@@ -1,6 +1,6 @@
 package com.example.service;
 
-import com.example.dto.EmailHistoryDTO;
+import com.example.dto.email.EmailHistoryDTO;
 import com.example.entity.EmailHistoryEntity;
 import com.example.exps.AppBadRequestException;
 import com.example.repository.EmailHistoryRepository;

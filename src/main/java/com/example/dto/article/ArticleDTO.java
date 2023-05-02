@@ -1,4 +1,4 @@
-package com.example.dto;
+package com.example.dto.article;
 
 import com.example.entity.CategoryEntity;
 import com.example.entity.RegionEntity;

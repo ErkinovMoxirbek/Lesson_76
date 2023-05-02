@@ -1,7 +1,7 @@
 package com.example.service;
 
-import com.example.dto.RegionDTO;
-import com.example.dto.RegionLangDTO;
+import com.example.dto.region.RegionDTO;
+import com.example.dto.region.RegionLangDTO;
 import com.example.entity.RegionEntity;
 import com.example.exps.AppBadRequestException;
 import com.example.exps.ItemNotFoundException;
@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;

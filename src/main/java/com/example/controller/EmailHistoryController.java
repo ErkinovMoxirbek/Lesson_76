@@ -1,6 +1,6 @@
 package com.example.controller;
 
-import com.example.dto.EmailHistoryDTO;
+import com.example.dto.email.EmailHistoryDTO;
 import com.example.service.EmailHistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

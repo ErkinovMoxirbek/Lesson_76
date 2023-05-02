@@ -1,10 +1,10 @@
-package com.example.dto;
+package com.example.dto.region;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-public class ArticleTypeLangDTO {
+public class RegionLangDTO {
     private Integer id;
     private String name;
 }

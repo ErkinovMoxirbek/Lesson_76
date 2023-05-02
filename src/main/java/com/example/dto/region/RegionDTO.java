@@ -1,4 +1,4 @@
-package com.example.dto;
+package com.example.dto.region;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -6,11 +6,11 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 
 @Getter @Setter
-public class ArticleTypeDTO {
+public class RegionDTO {
     private Integer id;
     private String nameUz;
-    private String nameEn;
     private String nameRu;
+    private String nameEn;
     private LocalDateTime createdDate;
     private Boolean visible;
 }

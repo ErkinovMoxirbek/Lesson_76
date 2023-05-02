@@ -27,21 +27,43 @@ public class ArticleEntity {
     private ArticleStatus status = ArticleStatus.NOT_PUBLISHED;
     @Column(name = "shared_count")
     private Integer sharedCount = 0;
+
+    @Column(name = "attach_id")
+    private String attachId;
     @ManyToOne
-    @JoinColumn(name = "attach_id")
+    @JoinColumn(name = "attach_id", insertable = false, updatable = false)
     private AttachEntity attach;
+
+    @Column(name = "region_id")
+    private Integer regionId;
     @ManyToOne
-    @JoinColumn(name = "region_id")
+    @JoinColumn(name = "region_id", insertable = false, updatable = false)
     private RegionEntity region;
+
+    @Column(name = "category_id")
+    private Integer categoryId;
     @ManyToOne
-    @JoinColumn(name = "category_id")
+    @JoinColumn(name = "category_id", insertable = false, updatable = false)
     private CategoryEntity category;
+
+    @Column(name = "moderator_id")
+    private Integer moderatorId;
     @ManyToOne
-    @JoinColumn(name = "moderator_id")
+    @JoinColumn(name = "moderator_id", insertable = false, updatable = false)
     private ProfileEntity moderator;
+
+    @Column(name = "publisher_id")
+    private Integer publisherId;
     @ManyToOne
-    @JoinColumn(name = "publisher_id")
+    @JoinColumn(name = "publisher_id", insertable = false, updatable = false)
     private ProfileEntity publisher;
+
+    @Column(name = "type_id")
+    private Integer typeId;
+    @ManyToOne
+    @JoinColumn(name = "type_id", insertable = false, updatable = false)
+    private ArticleTypeEntity type;
+
     @Column(name = "created_date")
     private LocalDateTime createdDate = LocalDateTime.now();
     @Column(name = "published_date")
@@ -50,9 +72,16 @@ public class ArticleEntity {
     private Boolean visible = Boolean.TRUE;
     @Column(name = "view_count")
     private Integer viewCount;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "type_id")
-    private ArticleTypeEntity type;
 
-    private String typeId;
+    public ArticleEntity() {
+
+    }
+
+    public ArticleEntity(String id, String title, String description, String attachId, LocalDateTime publishedDate) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.attachId = attachId;
+        this.publishedDate = publishedDate;
+    }
 }

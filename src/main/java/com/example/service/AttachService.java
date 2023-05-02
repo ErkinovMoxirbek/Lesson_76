@@ -1,12 +1,11 @@
 package com.example.service;
 
-import com.example.dto.AttachDTO;
-import com.example.dto.ProfileDTO;
+import com.example.dto.attach.AttachDTO;
 import com.example.entity.AttachEntity;
-import com.example.entity.ProfileEntity;
 import com.example.exp.ItemNotFoundException;
 import com.example.repository.AttachRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.data.domain.*;
@@ -30,6 +29,8 @@ import java.util.UUID;
 
 @Service
 public class AttachService {
+    @Value("${server.host}")
+    private String serverHost;
     @Autowired
     private AttachRepository attachRepository;
 
@@ -128,7 +129,20 @@ public class AttachService {
             return new byte[0];
         }
     }
-
+    public byte[] loadImage2(String attachName) {
+        int lastIndex = attachName.lastIndexOf(".");
+        String id = attachName.substring(0, lastIndex);
+        AttachEntity attachEntity = get(id);
+        byte[] data;
+        try {
+            Path file = Paths.get("attaches/" + attachEntity.getPath() + "/" + attachName + "." + attachEntity.getExtension());
+            data = Files.readAllBytes(file);
+            return data;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return new byte[0];
+    }
     public byte[] open_general(String attachName) {
         byte[] data;
         try {

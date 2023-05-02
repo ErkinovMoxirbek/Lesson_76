@@ -1,6 +1,10 @@
 package com.example.controller;
 
-import com.example.dto.*;
+import com.example.dto.article.ArticleDTO;
+import com.example.dto.article.ArticleInfoDTO;
+import com.example.dto.article.ArticleResponseDTO;
+import com.example.dto.article.ArticleShortInfoDTO;
+import com.example.dto.jwt.JwtDTO;
 import com.example.enums.ProfileRole;
 import com.example.service.ArticleService;
 import com.example.util.JwtUtil;

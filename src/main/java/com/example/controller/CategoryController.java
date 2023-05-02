@@ -1,8 +1,8 @@
 package com.example.controller;
 
-import com.example.dto.CategoryDTO;
-import com.example.dto.CategoryLangDTO;
-import com.example.dto.JwtDTO;
+import com.example.dto.category.CategoryDTO;
+import com.example.dto.category.CategoryLangDTO;
+import com.example.dto.jwt.JwtDTO;
 import com.example.enums.ProfileRole;
 import com.example.exps.MethodNotAllowedException;
 import com.example.service.CategoryService;

@@ -1,7 +1,7 @@
 package com.example.service;
 
-import com.example.dto.ArticleTypeDTO;
-import com.example.dto.ArticleTypeRequestDTO;
+import com.example.dto.article.ArticleTypeDTO;
+import com.example.dto.article.ArticleTypeRequestDTO;
 import com.example.entity.ArticleTypeEntity;
 import com.example.exp.AppBadRequestException;
 import com.example.exps.ArticleTypeNotFoundException;

@@ -1,7 +1,7 @@
 package com.example.controller;
 
-import com.example.dto.JwtDTO;
-import com.example.dto.ProfileDTO;
+import com.example.dto.jwt.JwtDTO;
+import com.example.dto.jwt.ProfileDTO;
 import com.example.enums.ProfileRole;
 import com.example.exp.MethodNotAllowedException;
 import com.example.service.ProfileService;
@@ -11,7 +11,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 @RestController
 @RequestMapping(value = "/api/v1/profile")
 public class ProfileController {

@@ -1,17 +1,13 @@
 package com.example.controller;
 
-import com.example.dto.ArticleTypeDTO;
-import com.example.dto.ArticleTypeLangDTO;
-import com.example.dto.ArticleTypeRequestDTO;
-import com.example.dto.JwtDTO;
+import com.example.dto.article.ArticleTypeDTO;
+import com.example.dto.article.ArticleTypeRequestDTO;
+import com.example.dto.jwt.JwtDTO;
 import com.example.enums.ProfileRole;
-import com.example.exps.MethodNotAllowedException;
 import com.example.service.ArticleTypeService;
 import com.example.util.JwtUtil;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

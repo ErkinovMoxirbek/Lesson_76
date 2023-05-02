@@ -1,12 +1,16 @@
 package com.example.service;
 
-import com.example.dto.*;
+import com.example.dto.article.ArticleDTO;
+import com.example.dto.article.ArticleInfoDTO;
+import com.example.dto.article.ArticleResponseDTO;
+import com.example.dto.article.ArticleShortInfoDTO;
+import com.example.dto.attach.AttachDTO;
 import com.example.entity.*;
 import com.example.enums.ArticleStatus;
 import com.example.exp.AppBadRequestException;
 import com.example.exp.ArticleNotFoundException;
+import com.example.mapper.ArticleShortInfoMapper;
 import com.example.repository.ArticleRepository;
-import com.example.repository.CategoryRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -14,6 +18,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -210,6 +215,16 @@ public class ArticleService {
             dtoList.add(toShortInfo(entity));
         }
         return dtoList;
+    }   public Boolean changeStatus(ArticleStatus status, String id, Integer prtId) {
+        ArticleEntity entity = get(id);
+        if (status.equals(ArticleStatus.PUBLISHED)) {
+            entity.setPublishedDate(LocalDateTime.now());
+            entity.setPublisherId(prtId);
+        }
+        entity.setStatus(status);
+        articleRepository.save(entity);
+        // articleRepository.changeStatus(status, id);
+        return true;
     }
     public List<ArticleShortInfoDTO> get4ArticleByTypes(Integer typeId, String articleId) {
         ArticleTypeEntity type = articleTypeService.get(typeId);
@@ -220,4 +235,38 @@ public class ArticleService {
         }
         return dtoList;
     }
+    public ArticleShortInfoDTO toArticleShortInfo(ArticleEntity entity) {
+        ArticleShortInfoDTO dto = new ArticleShortInfoDTO();
+        dto.setId(entity.getId());
+        dto.setTitle(entity.getTitle());
+        dto.setDescription(entity.getDescription());
+        dto.setPublishedDate(entity.getPublishedDate());
+        dto.setImage(attachService.getAttachLink(entity.getAttachId()));
+        return dto;
+    }
+    public List<ArticleShortInfoDTO> getLast5ByTypeId(Integer typeId) {
+        List<ArticleEntity> entityList = articleRepository.findTop5ByTypeIdAndStatusAndVisibleOrderByCreatedDateDesc(typeId,
+                ArticleStatus.PUBLISHED, true);
+        List<ArticleShortInfoDTO> dtoList = new LinkedList<>();
+        entityList.forEach(entity -> {
+            dtoList.add(toArticleShortInfo(entity));
+        });
+        return dtoList;
+    }
+    public AttachDTO getAttachLink(String attachId) {
+        AttachDTO dto = new AttachDTO();
+        dto.setId(attachId);
+        dto.setUrl(serverHost + "/api/v1/attach/open/" + attachId);
+        return dto;
+    }
+    public ArticleShortInfoDTO toArticleShortInfo(ArticleShortInfoMapper entity) {
+        ArticleShortInfoDTO dto = new ArticleShortInfoDTO();
+        dto.setId(entity.getId());
+        dto.setTitle(entity.getTitle());
+        dto.setDescription(entity.getDescription());
+        dto.setPublishedDate(entity.getPublished_date());
+        dto.setImage(attachService.getAttachLink(entity.getAttachId()));
+        return dto;
+    }
 }
+

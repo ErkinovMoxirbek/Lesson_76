@@ -1,8 +1,8 @@
 package com.example.controller;
 
-import com.example.dto.JwtDTO;
-import com.example.dto.RegionDTO;
-import com.example.dto.RegionLangDTO;
+import com.example.dto.jwt.JwtDTO;
+import com.example.dto.region.RegionDTO;
+import com.example.dto.region.RegionLangDTO;
 import com.example.enums.ProfileRole;
 import com.example.exps.MethodNotAllowedException;
 import com.example.service.RegionService;
