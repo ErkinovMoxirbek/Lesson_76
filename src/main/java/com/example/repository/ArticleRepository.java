@@ -35,4 +35,7 @@ public interface ArticleRepository extends CrudRepository<ArticleEntity, Integer
     List<ArticleEntity> findByTypeIdAndIdNot(@Param("type") ArticleTypeEntity type, @Param("id") String id);
     @Query("SELECT new ArticleEntity(id,title,description,attachId,publishedDate) From ArticleEntity where status =:status and visible = true and typeId =:typeId order by createdDate desc limit 5")
     List<ArticleEntity> find5ByTypeId(@Param("typeId") Integer typeId, @Param("status") ArticleStatus status);
+    List<ArticleEntity> findTop5ByTypeIdAndStatusAndVisibleOrderByCreatedDateDesc(Integer typeId,
+                                                                                  ArticleStatus status,
+                                                                                  Boolean visible);
 }

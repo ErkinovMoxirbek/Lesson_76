@@ -3,7 +3,7 @@ package com.example.controller;
 import com.example.dto.jwt.JwtDTO;
 import com.example.dto.jwt.ProfileDTO;
 import com.example.enums.ProfileRole;
-import com.example.exp.MethodNotAllowedException;
+import com.example.exps.MethodNotAllowedException;
 import com.example.service.ProfileService;
 import com.example.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;

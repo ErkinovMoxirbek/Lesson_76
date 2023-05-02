@@ -2,7 +2,7 @@ package com.example.util;
 
 import com.example.dto.jwt.JwtDTO;
 import com.example.enums.ProfileRole;
-import com.example.exp.MethodNotAllowedException;
+import com.example.exps.MethodNotAllowedException;
 import io.jsonwebtoken.*;
 
 import java.util.Date;

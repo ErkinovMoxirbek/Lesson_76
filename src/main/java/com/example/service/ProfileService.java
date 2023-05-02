@@ -3,8 +3,8 @@
 import com.example.dto.jwt.ProfileDTO;
 import com.example.entity.ProfileEntity;
 import com.example.enums.GeneralStatus;
-import com.example.exp.AppBadRequestException;
-import com.example.exp.ItemNotFoundException;
+import com.example.exps.AppBadRequestException;
+import com.example.exps.ItemNotFoundException;
 import com.example.repository.ProfileRepository;
 import com.example.util.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,5 +1,6 @@
 package com.example.dto.article;
 
+import com.example.dto.attach.AttachDTO;
 import com.example.entity.AttachEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,6 +11,7 @@ public class ArticleShortInfoDTO {
     private String id;
     private String title;
     private String description;
-    private AttachEntity attach;
+    private AttachDTO image;
     private LocalDateTime publishedDate;
+
 }

@@ -7,11 +7,12 @@ import com.example.dto.article.ArticleShortInfoDTO;
 import com.example.dto.attach.AttachDTO;
 import com.example.entity.*;
 import com.example.enums.ArticleStatus;
-import com.example.exp.AppBadRequestException;
-import com.example.exp.ArticleNotFoundException;
+import com.example.exps.AppBadRequestException;
+import com.example.exps.ArticleNotFoundException;
 import com.example.mapper.ArticleShortInfoMapper;
 import com.example.repository.ArticleRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -26,6 +27,8 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class ArticleService {
+    @Value("${server.host}")
+    private String serverHost;
     private final CategoryService categoryService;
     private final RegionService regionService;
     private final ArticleTypeService articleTypeService;
@@ -185,11 +188,11 @@ public class ArticleService {
 
     public ArticleShortInfoDTO toShortInfo(ArticleEntity entity) {
         ArticleShortInfoDTO dto = new ArticleShortInfoDTO();
-        dto.setAttach(entity.getAttach());
         dto.setId(entity.getId());
-        dto.setPublishedDate(entity.getPublishedDate());
-        dto.setDescription(entity.getDescription());
         dto.setTitle(entity.getTitle());
+        dto.setDescription(entity.getDescription());
+        dto.setPublishedDate(entity.getPublishedDate());
+        dto.setImage(attachService.getAttachLink(entity.getAttachId()));
         return dto;
     }
 

@@ -3,7 +3,7 @@ package com.example.controller;
 import com.example.dto.auth.AuthDTO;
 import com.example.dto.registration.RegistrationDTO;
 import com.example.dto.registration.RegistrationResponseDTO;
-import com.example.exp.AppBadRequestException;
+import com.example.exps.AppBadRequestException;
 import com.example.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
