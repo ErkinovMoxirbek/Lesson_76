@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-public class ArticleShortInfo {
+public class ArticleShortInfoDTO {
     @Id  private String id;
     private String title;
     private String description;

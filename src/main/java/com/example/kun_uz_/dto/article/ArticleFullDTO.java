@@ -1,5 +1,7 @@
 package com.example.kun_uz_.dto.article;
 
+import com.example.kun_uz_.dto.RegionDTO.RegionResponseDTO;
+import com.example.kun_uz_.dto.categoryEntity.CategoryResponseDTO;
 import com.example.kun_uz_.entity.*;
 import com.example.kun_uz_.enums.ArticleStatus;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -17,11 +19,10 @@ public class ArticleFullDTO {
     private String description;
     private String content;
     private Integer sharedCount = 0;
-    private RegionEntity region;
-    private CategoryEntity category;
+    private RegionResponseDTO region;
+    private CategoryResponseDTO category;
     private LocalDateTime publishedDate;
     private Integer viewCount;
     private Integer likeCount;
-    private String tagList;
 
 }

@@ -31,7 +31,7 @@ Content-Type:  application/json
   "regionId": 1,
   "category_id": 1,
   "attachId": "7f12f329-e7c2-4e08-88d9-e268deb1c08c",
-  "typeId": 21
+  "typeId": 1
 
 }
 
