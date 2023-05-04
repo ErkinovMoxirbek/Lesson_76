@@ -12,5 +12,4 @@ import java.time.LocalDateTime;
 public class TagDTO {
     private Integer id;
     private String name;
-    private LocalDateTime createdDate;
 }

@@ -1,0 +1,25 @@
+### Create article1
+POST localhost:8088/tag
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODMyMDI0ODMsImlkIjoxMCwicm9sZSI6Ik1PREVSQVRPUiIsImV4cCI6MTY4MzI4ODg4MywiaXNzIjoiS3VudXogdGVzdCBwb3J0YWxpIn0.dMN-wOVMNmhopoER50d3u3CmnxjqvKzrttc9CdlSDp-PUNr53CYCVA9dapWUs7v1phY5JazCKjCkUdalAUn_9g
+Content-Type:  application/json
+
+{
+  "name": "#Qo`qon"
+}
+
+### Update profle
+POST localhost:8088/tag/2
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODMyMDI0ODMsImlkIjoxMCwicm9sZSI6Ik1PREVSQVRPUiIsImV4cCI6MTY4MzI4ODg4MywiaXNzIjoiS3VudXogdGVzdCBwb3J0YWxpIn0.dMN-wOVMNmhopoER50d3u3CmnxjqvKzrttc9CdlSDp-PUNr53CYCVA9dapWUs7v1phY5JazCKjCkUdalAUn_9g
+Content-Type:  application/json
+
+{
+  "name": "#gaz"
+}
+
+### Delete profle
+DELETE localhost:8088/tag/2
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODMyMDI0ODMsImlkIjoxMCwicm9sZSI6Ik1PREVSQVRPUiIsImV4cCI6MTY4MzI4ODg4MywiaXNzIjoiS3VudXogdGVzdCBwb3J0YWxpIn0.dMN-wOVMNmhopoER50d3u3CmnxjqvKzrttc9CdlSDp-PUNr53CYCVA9dapWUs7v1phY5JazCKjCkUdalAUn_9g
+Content-Type:  application/json
+
+
+
