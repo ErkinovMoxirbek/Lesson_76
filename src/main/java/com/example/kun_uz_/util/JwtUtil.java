@@ -81,5 +81,16 @@ public class JwtUtil {
         }
         return jwtDTO;
     }
-
+    public static void checkToAdminOrOwner(String authorization) {
+        JwtDTO jwtDTO = getJwtDTO(authorization);
+        if (!(jwtDTO.getRole().equals(ProfileRole.ADMIN)||checkToOwner(authorization, jwtDTO.getId()))){
+            throw new MethodNotAllowedException("Method not allowed");
+        }
+    }
+    public static boolean checkToOwner(String authorization,Integer userId) {
+        if (getJwtDTO(authorization).getId()!=userId){
+            throw new MethodNotAllowedException("Method not allowed");
+        }
+        return true;
+    }
 }
